@@ -11,13 +11,10 @@ if(!time){
     localStorage.setItem('time', firstTime);
 
 } else {
-    let nowHours = (new Date()).getHours();
     let nowMinutes = (new Date()).getMinutes();
     
-    let firstTimeArr = localStorage.getItem('time').split(':');
-
     let diffHours = 0;
-    let diffMinutes = nowMinutes - firstTimeArr[1];
+    let diffMinutes = Math.abs(nowMinutes - firstTimeArr[1]);
 
     if (diffMinutes > 60){
          diffHours = Math.ceil(diffMinutes / 60);
